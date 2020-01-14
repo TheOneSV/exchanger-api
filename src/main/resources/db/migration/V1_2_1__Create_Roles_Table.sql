@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS roles (
+    id bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name varchar(10) NOT NULL,
+);
+
+ALTER TABLE IF EXISTS roles
+ADD CONSTRAINT role_name
+CHECK (name IN('ADMIN', 'USER', 'TEST'));
