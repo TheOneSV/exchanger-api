@@ -1,7 +1,7 @@
 package com.yotaku.exchanger.exchangerapi.provider;
 
 import com.yotaku.exchanger.exchangerapi.domain.Role;
-import com.yotaku.exchanger.exchangerapi.util.converter.UserRole;
+import com.yotaku.exchanger.exchangerapi.domain.UserRole;
 
 public class RoleProvider {
 	
@@ -11,7 +11,7 @@ public class RoleProvider {
 		ADMIN.setName(UserRole.ADMIN);
 	}
 	
-	public static final Role roleAdmin() {
+	public static Role roleAdmin() {
 		return ADMIN;
 	}
 }

@@ -24,7 +24,7 @@ public class ExchangeTransaction {
         public static final String TARGET_CURRENCY = "targetCurrency";
         public static final String EXCHANGE_RATE = "exchangeRate";
         public static final String SOURCE_AMOUNT = "sourceAmount";
-        public static final String TARAGET_AMOUNT = "targetAmount";
+        public static final String TARGET_AMOUNT = "targetAmount";
     }
 
     @Id

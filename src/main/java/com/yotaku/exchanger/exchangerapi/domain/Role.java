@@ -15,8 +15,6 @@ import javax.validation.constraints.Positive;
 
 import org.springframework.security.core.GrantedAuthority;
 
-import com.yotaku.exchanger.exchangerapi.util.converter.UserRole;
-
 @Entity()
 @Table(name = TABLE_NAME)
 public class Role implements GrantedAuthority {

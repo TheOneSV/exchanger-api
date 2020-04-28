@@ -10,24 +10,19 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import com.yotaku.exchanger.exchangerapi.errorhandling.CustomRestExceptionHandler;
-import com.yotaku.exchanger.exchangerapi.web.rest.controller.ConversionApiController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.yotaku.exchanger.exchangerapi.domain.ExchangeTransaction;
 import com.yotaku.exchanger.exchangerapi.repository.ExchangeTransactionRepository;
 import com.yotaku.exchanger.exchangerapi.service.impl.ExchangeTransactionServiceImpl;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 @ExtendWith(SpringExtension.class)
 public class ExchangeTransactionServiceTest {
@@ -57,7 +52,7 @@ public class ExchangeTransactionServiceTest {
 	public void testFindAllByDate() {
 		LocalDate today = LocalDate.now();
 		List<ExchangeTransaction> transactionsList = transactionsList();	
-		Page<ExchangeTransaction> resultPage = new PageImpl<ExchangeTransaction>(transactionsList);
+		Page<ExchangeTransaction> resultPage = new PageImpl<>(transactionsList);
 
 		doReturn(resultPage).when(exchangeTransactionRepositoryMock).findAllByTransactionDateTimeBetween(
 				any(LocalDateTime.class), any(LocalDateTime.class), any(Pageable.class));

@@ -26,10 +26,10 @@ public final class LinkUtil {
             final int page,
             final int totalPages,
             final int pageSize,
-            final long toltalElements) {
+            final long totalElements) {
 
         final PagedResources.PageMetadata pageMetadata
-                = new PagedResources.PageMetadata(pageSize, page, toltalElements, totalPages);
+                = new PagedResources.PageMetadata(pageSize, page, totalElements, totalPages);
 
         final List<Link> links = LinkUtil.createResourceLinks(uriBuilder,page, totalPages, pageSize);
 

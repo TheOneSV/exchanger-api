@@ -16,6 +16,7 @@ import javax.money.convert.CurrencyConversion;
 import javax.money.convert.ExchangeRate;
 import javax.money.convert.ExchangeRateProvider;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 @Service
 public class ExchangeServiceImpl implements ExchangeService {
@@ -27,6 +28,9 @@ public class ExchangeServiceImpl implements ExchangeService {
     public ExchangeServiceImpl(
             final ExchangeTransactionService exchangeTransactionService,
             final ExchangeRateProvider exchangeRateProvider) {
+        
+        Objects.requireNonNull(exchangeTransactionService, "exchangeTransactionService must not be null");
+        Objects.requireNonNull(exchangeRateProvider, "exchangeRateProvider must not be null");
 
         this.exchangeTransactionService = exchangeTransactionService;
         this.exchangeRateProvider = exchangeRateProvider;

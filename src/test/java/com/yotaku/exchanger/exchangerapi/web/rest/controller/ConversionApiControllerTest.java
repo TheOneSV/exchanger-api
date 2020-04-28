@@ -1,12 +1,14 @@
 package com.yotaku.exchanger.exchangerapi.web.rest.controller;
 
-import com.yotaku.exchanger.exchangerapi.errorhandling.CustomRestExceptionHandler;
+import com.yotaku.exchanger.exchangerapi.mapper.ExchangeTransactionMapper;
+import com.yotaku.exchanger.exchangerapi.web.error.CustomRestExceptionHandler;
 import com.yotaku.exchanger.exchangerapi.service.ExchangeService;
 import com.yotaku.exchanger.exchangerapi.service.ExchangeTransactionService;
 import com.yotaku.exchanger.exchangerapi.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mapstruct.factory.Mappers;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
@@ -37,6 +39,8 @@ public class ConversionApiControllerTest {
 	@MockBean
 	private ExchangeTransactionService exchangeTransactionService;
 
+	private final ExchangeTransactionMapper exchangeTransactionMapper = Mappers.getMapper(ExchangeTransactionMapper.class);
+
 	private ConversionApiController conversionApiController;
 
 	private MockMvc mockMvc;
@@ -45,7 +49,7 @@ public class ConversionApiControllerTest {
 	public void setUp() {
 		MockitoAnnotations.initMocks(this);
 
-		conversionApiController = new ConversionApiController(userService, exchangeService, exchangeTransactionService);
+		conversionApiController = new ConversionApiController(userService, exchangeService, exchangeTransactionService, exchangeTransactionMapper);
 
 		mockMvc = MockMvcBuilders.standaloneSetup(conversionApiController)
 				.setCustomArgumentResolvers(new PageableHandlerMethodArgumentResolver())

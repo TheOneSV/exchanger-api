@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.yotaku.exchanger.exchangerapi.service.UserService;
 
+import java.util.Objects;
+
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
@@ -14,6 +16,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@Autowired
 	public UserDetailsServiceImpl(final UserService userService) {
+		Objects.requireNonNull(userService, "userService must not be null");
 		this.userService = userService;
 	}
 	

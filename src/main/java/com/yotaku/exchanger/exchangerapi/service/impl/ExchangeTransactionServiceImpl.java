@@ -3,6 +3,7 @@ package com.yotaku.exchanger.exchangerapi.service.impl;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Objects;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ public class ExchangeTransactionServiceImpl implements ExchangeTransactionServic
 
     @Autowired
     public ExchangeTransactionServiceImpl(final ExchangeTransactionRepository exchangeTransactionRepository) {
+        Objects.requireNonNull(exchangeTransactionRepository, "exchangeTransactionRepository must not be null");
         this.exchangeTransactionRepository = exchangeTransactionRepository;
     }
 

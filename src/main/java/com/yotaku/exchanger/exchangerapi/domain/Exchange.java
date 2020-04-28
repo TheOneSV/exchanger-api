@@ -16,9 +16,7 @@ public class Exchange {
     private final BigDecimal sourceAmount;
     private final BigDecimal targetAmount;
 
-
     private Exchange(final ExchangeResultBuilder builder) {
-
         this.transactionDateTime = builder.transactionDateTime;
         this.sourceCurrency = builder.sourceCurrency;
         this.targetCurrency = builder.targetCurrency;
@@ -34,7 +32,6 @@ public class Exchange {
     public static ExchangeResultBuilder builder() {
         return new ExchangeResultBuilder();
     }
-
 
     public LocalDateTime getTransactionDateTime() {
         return transactionDateTime;
